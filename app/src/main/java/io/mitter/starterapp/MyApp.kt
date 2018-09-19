@@ -1,10 +1,12 @@
 package io.mitter.starterapp
 
 import android.app.Application
+import android.util.Log
 import io.mitter.android.Mitter
 import io.mitter.android.domain.model.MitterConfig
 import io.mitter.android.domain.model.UserAuth
 import io.mitter.models.mardle.messaging.*
+import org.greenrobot.eventbus.EventBus
 
 class MyApp : Application() {
     lateinit var mitter: Mitter
@@ -28,27 +30,27 @@ class MyApp : Application() {
 
         mitter.registerOnPushMessageReceivedListener(object : Mitter.OnPushMessageReceivedCallback {
             override fun onChannelStreamData(channelId: String, streamId: String, streamData: ContextFreeMessage) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onNewChannel(channel: Channel) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onNewChannelTimelineEvent(channelId: String, timelineEvent: TimelineEvent) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onNewMessage(channelId: String, message: Message) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                EventBus.getDefault().post(message)
             }
 
             override fun onNewMessageTimelineEvent(messageId: String, timelineEvent: TimelineEvent) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onParticipationChangedEvent(channelId: String, participantId: String, newStatus: ParticipationStatus, oldStatus: ParticipationStatus?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
         })
     }
