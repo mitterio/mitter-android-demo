@@ -34,6 +34,8 @@ dependencies {
 
     //Mitter SDK
     implementation 'io.mitter.android:core:0.1.1'
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
