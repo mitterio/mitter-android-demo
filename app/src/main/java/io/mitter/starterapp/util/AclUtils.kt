@@ -10,49 +10,64 @@ import io.mitter.models.mardle.accesscontrol.UserIdAccessorSelector
 import io.mitter.starterapp.data.UserIdProvider
 
 object AclUtils {
-    fun onlySam(): AppliedAclList {
+    fun meAndSam(senderId: String): AppliedAclList {
         return AppliedAclList(
             plusAppliedAcls = listOf(
                 AppliedAcl
                 (
                     ReadMessagePrivilege(),
                     UserIdAccessorSelector(IdUtils.of(UserIdProvider.getUserId("sam")))
+                ),
+                AppliedAcl
+                (
+                    ReadMessagePrivilege(),
+                    UserIdAccessorSelector(IdUtils.of(senderId))
                 )
             ),
             minusAppliedAcls = emptyList()
         )
     }
 
-    fun onlyJason(): AppliedAclList {
+    fun meAndJason(senderId: String): AppliedAclList {
         return AppliedAclList(
             plusAppliedAcls = listOf(
                 AppliedAcl
                 (
                     ReadMessagePrivilege(),
                     UserIdAccessorSelector(IdUtils.of(UserIdProvider.getUserId("jason")))
+                ),
+                AppliedAcl
+                (
+                    ReadMessagePrivilege(),
+                    UserIdAccessorSelector(IdUtils.of(senderId))
                 )
             ),
             minusAppliedAcls = emptyList()
         )
     }
 
-    fun onlyKatie(): AppliedAclList {
+    fun meAndKatie(senderId: String): AppliedAclList {
         return AppliedAclList(
             plusAppliedAcls = listOf(
                 AppliedAcl
                 (
                     ReadMessagePrivilege(),
                     UserIdAccessorSelector(IdUtils.of(UserIdProvider.getUserId("katie")))
+                ),
+                AppliedAcl
+                (
+                    ReadMessagePrivilege(),
+                    UserIdAccessorSelector(IdUtils.of(senderId))
                 )
             ),
             minusAppliedAcls = emptyList()
         )
     }
 
-    fun getAclListFromUsername(username: String) = when (username) {
-        "sam" -> onlySam()
-        "jason" -> onlyJason()
-        "katie" -> onlyKatie()
+    fun getAclListFromUsername(username: String, senderId: String) = when (username) {
+        "sam" -> meAndSam(senderId)
+        "jason" -> meAndJason(senderId)
+        "katie" -> meAndKatie(senderId)
         else -> emptyAclList()
     }
 }

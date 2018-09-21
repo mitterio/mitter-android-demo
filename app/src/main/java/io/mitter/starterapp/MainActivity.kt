@@ -57,16 +57,18 @@ class MainActivity : AppCompatActivity() {
         )
 
         sendButton.setOnClickListener {
-            val typedInput = inputMessage?.text.toString()
+            var typedInput = inputMessage?.text.toString()
             var appliedAcls = emptyAclList()
 
             if (typedInput.contains('@')) {
                 val username = typedInput.substring(1, typedInput.indexOf(' '))
-                appliedAcls = AclUtils.getAclListFromUsername(username)
+                typedInput = typedInput.substringAfter(' ')
+                appliedAcls = AclUtils.getAclListFromUsername(username, mitter.getUserId())
             }
+
             messaging.sendTextMessage(
                 channelId = channelId,
-                message = inputMessage?.text.toString(),
+                message = typedInput,
                 appliedAcls = appliedAcls,
                 onValueUpdatedCallback = object : Mitter.OnValueUpdatedCallback {
                     override fun onError(apiError: ApiError) {
