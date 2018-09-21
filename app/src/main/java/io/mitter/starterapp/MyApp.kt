@@ -19,18 +19,23 @@ class MyApp : Application() {
 
         val jasonAuth = UserAuth(
             userId = "8ed92f3c-0696-4513-a842-085e3cee589e",
-            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6Imw5VW1DUUcyWDJYbzM2enAiLCJ1c2VydG9rZW4iOiI0ZzNkcWIxMTk0NDZvYXQ2cmdpcTg2aTF1YSJ9.4Ibj24NlkdtPjEH8Vi1nlGAqSJCgQy3RWqNyqXgOKQHR7gT-cd9ZH_b68o3b3Gk5qyG_-eqC8pMD8F0JdpzwBg"
+            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6IlJkZHZCNXJ5RGdPNUpvSkoiLCJ1c2VydG9rZW4iOiI5cXA1MjQyY2N1NW9lbHI3OTRzc2ltbDY3OCJ9.aonmZhZWCyIHJR6nxlNn_KSgAvdWlB4vtZgfdXbvlIvXBM5oNaUzpF3YbfAlZeyPr8_uMf8HCcoh4dVFr-lYFw"
         )
 
         val katieAuth = UserAuth(
             userId = "cb02bc00-979e-4db2-8625-116178c4ad95",
-            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6IndjdlNZcHVoR3Jmdnc4MHEiLCJ1c2VydG9rZW4iOiJyY2Vvbmw2NGdlZW40cTRwaXI5bXNuMW5wciJ9.NEIQtpbyNMyYErVaO_16KKPDhDHXFtXG_UlQIvgSGSQB8zU3790aIc-8UqtgR0TJu73mWnLlZfBLS3XES_h9rg"
+            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6Ilg2ZXZKZDVHSmx1SU5URWEiLCJ1c2VydG9rZW4iOiJwdnA2MGFwa3NpYjgzY21yOGI1N2g0YmhpYSJ9.hVw0h3hmtOQlx9phWrJ7zK9an9GmXv9H481OjrbIPOmE58g86EqozHLhASwl0jdiqC5KjU1_nrIK40pmNEvY9w"
+        )
+
+        val samAuth = UserAuth(
+            userId = "5cfe3da1-4467-49b8-8325-3e85cec31c5a",
+            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6IlhoSnV5dGw0OG5OSlBJVDYiLCJ1c2VydG9rZW4iOiIyamozaTdhNTA5Yzc3c2Vva2dscGdiZjBpNiJ9.BwPGV2kTdclHdRaIzqjR6yAascqvYE52tH2iLK2aDBaBZA841SM0gW0WdblxLYeAyyM-XKXIEHwM2K0xQwoh7w"
         )
 
         mitter = Mitter(
             context = this,
             mitterConfig = mitterConfig,
-            userAuth = katieAuth
+            userAuth = samAuth
         )
 
         mitter.registerOnPushMessageReceivedListener(object : Mitter.OnPushMessageReceivedCallback {

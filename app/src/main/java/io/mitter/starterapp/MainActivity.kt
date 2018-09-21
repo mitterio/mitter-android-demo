@@ -7,8 +7,10 @@ import android.util.Log
 import io.mitter.android.Mitter
 import io.mitter.android.error.model.base.ApiError
 import io.mitter.data.domain.user.User
+import io.mitter.models.acolyte.emptyAclList
 import io.mitter.models.mardle.messaging.Message
 import io.mitter.starterapp.adapter.ChatRecyclerViewAdapter
+import io.mitter.starterapp.util.AclUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -55,9 +57,17 @@ class MainActivity : AppCompatActivity() {
         )
 
         sendButton.setOnClickListener {
+            val typedInput = inputMessage?.text.toString()
+            var appliedAcls = emptyAclList()
+
+            if (typedInput.contains('@')) {
+                val username = typedInput.substring(1, typedInput.indexOf(' '))
+                appliedAcls = AclUtils.getAclListFromUsername(username)
+            }
             messaging.sendTextMessage(
                 channelId = channelId,
                 message = inputMessage?.text.toString(),
+                appliedAcls = appliedAcls,
                 onValueUpdatedCallback = object : Mitter.OnValueUpdatedCallback {
                     override fun onError(apiError: ApiError) {
 
