@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onValueAvailable(value: List<Message>) {
-                    messageList.addAll(value)
+                    messageList.addAll(value.reversed())
                     chatRecyclerViewAdapter = ChatRecyclerViewAdapter(
                         messageList = messageList,
                         currentUserId = mitter.getUserId()

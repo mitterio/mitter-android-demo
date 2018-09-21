@@ -17,15 +17,20 @@ class MyApp : Application() {
             applicationId = "c5add92b-c42e-447b-b0e1-24c9e9044dce"
         )
 
-        val userAuth = UserAuth(
+        val jasonAuth = UserAuth(
             userId = "8ed92f3c-0696-4513-a842-085e3cee589e",
-            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6ImJtRlI5bWNQaDhkQnJHaWIiLCJ1c2VydG9rZW4iOiJiM2dvY2ZhZ3ZyNWlrNHJkbXJlc29wNnNlcyJ9.dlE1QOYmUJpqoh1kORm3hEI3KbBM0v8kKZQnQQwXR6TZuFiCaDQrJMlp-2dgNP1CTYCPMFYoqGctRWQ5JyNiOQ"
+            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6Imw5VW1DUUcyWDJYbzM2enAiLCJ1c2VydG9rZW4iOiI0ZzNkcWIxMTk0NDZvYXQ2cmdpcTg2aTF1YSJ9.4Ibj24NlkdtPjEH8Vi1nlGAqSJCgQy3RWqNyqXgOKQHR7gT-cd9ZH_b68o3b3Gk5qyG_-eqC8pMD8F0JdpzwBg"
+        )
+
+        val katieAuth = UserAuth(
+            userId = "cb02bc00-979e-4db2-8625-116178c4ad95",
+            userAuthToken = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJtaXR0ZXItaW8iLCJ1c2VyVG9rZW5JZCI6IndjdlNZcHVoR3Jmdnc4MHEiLCJ1c2VydG9rZW4iOiJyY2Vvbmw2NGdlZW40cTRwaXI5bXNuMW5wciJ9.NEIQtpbyNMyYErVaO_16KKPDhDHXFtXG_UlQIvgSGSQB8zU3790aIc-8UqtgR0TJu73mWnLlZfBLS3XES_h9rg"
         )
 
         mitter = Mitter(
             context = this,
             mitterConfig = mitterConfig,
-            userAuth = userAuth
+            userAuth = katieAuth
         )
 
         mitter.registerOnPushMessageReceivedListener(object : Mitter.OnPushMessageReceivedCallback {

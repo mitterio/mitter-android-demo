@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //Mitter SDK
-    implementation 'io.mitter.android:core:0.1.1'
+    implementation 'io.mitter.android:core:0.1.2'
 
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'org.greenrobot:eventbus:3.1.1'

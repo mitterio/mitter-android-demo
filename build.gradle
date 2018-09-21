@@ -20,9 +20,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://nomadly.jfrog.io/nomadly/release-public"
-        }
     }
 }
 
