@@ -19,7 +19,7 @@ import org.greenrobot.eventbus.ThreadMode
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mitter: Mitter
-    private val channelId: String = "6dedfac5-8060-4ad3-8d69-20a72fb86899"
+    private val channelId: String = "ccf76043-84bb-42b6-842b-57ce84d9cd06"
 
     private val messageList = mutableListOf<Message>()
     private lateinit var chatRecyclerViewAdapter: ChatRecyclerViewAdapter
@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         val channels = mitter.Channels()
         val messaging = mitter.Messaging()
 
-        chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.stackFromEnd = true
+        chatRecyclerView.layoutManager = linearLayoutManager
 
         messaging.getMessagesInChannel(
             channelId = channelId,
@@ -95,5 +97,6 @@ class MainActivity : AppCompatActivity() {
     fun onNewMessage(message: Message) {
         messageList.add(message)
         chatRecyclerViewAdapter.notifyItemInserted(messageList.size - 1)
+        chatRecyclerView.scrollToPosition(messageList.size - 1)
     }
 }
